@@ -21,10 +21,10 @@ public class TelaCadastro extends JFrame {
 	}
 
 	private JPanel pnGridbag = new JPanel();
-	private JButton buttonCadastroCliente = new JButton("Cadastrar Clientes");
-	private JButton buttonCadastroProduto = new JButton("Cadastrar Produtos");
-	private JButton buttonCadastroPedido = new JButton("Cadastrar Pedidos");
-	private JButton buttonEntradaEstoque = new JButton("Entrada de estoque");
+	private JButton buttonCadastroCliente = new JButton("Cadastro/Pesquisa Clientes");
+	private JButton buttonCadastroProduto = new JButton("Cadastro/Pesquisa Produtos");
+	private JButton buttonCadastroPedido = new JButton("Cadastro/Pesquisa Pedidos");
+	private JButton buttonEntradaEstoque = new JButton("Entrada/Pesquisa Estoque");
 	private JButton buttonSair = new JButton("Sair");
 	
 	
@@ -37,16 +37,16 @@ public class TelaCadastro extends JFrame {
 		setPreferredSize(new Dimension(400,350));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setTitle("Tela - Cadastro");
+		setTitle("Cadastro e Pesquisa");
 		setResizable(false);
 		pack();
 		setVisible(true);
 		
-		GBC gbc1 = new GBC(1,1).setSpan(1,1);
-		GBC gbc2 = new GBC(1,2).setSpan(1,1);
-		GBC gbc3 = new GBC(1,3).setSpan(1,1);
-		GBC gbc4 = new GBC(1,4).setSpan(1,1);
-		GBC gbc5 = new GBC(1,5).setSpan(1,1);
+		GBC gbc1 = new GBC(1,1).setSpan(1,1).setIpad(10,10).setInsets(8,8,8,8);
+		GBC gbc2 = new GBC(1,2).setSpan(1,1).setIpad(10,10).setInsets(8,8,8,8);
+		GBC gbc3 = new GBC(1,3).setSpan(1,1).setIpad(10,10).setInsets(8,8,8,8);
+		GBC gbc4 = new GBC(1,4).setSpan(1,1).setIpad(10,10).setInsets(8,8,8,8);
+		GBC gbc5 = new GBC(1,5).setSpan(1,1).setIpad(10,10).setInsets(8,8,8,8);
 		pnGridbag.add(buttonCadastroCliente,gbc1);
 		pnGridbag.add(buttonCadastroProduto,gbc2);
 		pnGridbag.add(buttonCadastroPedido,gbc3);

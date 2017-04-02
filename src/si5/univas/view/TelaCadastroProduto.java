@@ -36,7 +36,7 @@ public class TelaCadastroProduto extends JFrame {
 		buttonVoltar();
 		pnGridBag.setLayout(new GridBagLayout());
 		setContentPane(pnGridBag);
-		setPreferredSize(new Dimension(400,200));
+		setPreferredSize(new Dimension(400,300));
 		setTitle("Cadastrar Produtos");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
