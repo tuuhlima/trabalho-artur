@@ -21,10 +21,10 @@ public class TelaCadastro extends JFrame {
 	}
 
 	private JPanel pnGridbag = new JPanel();
-	private JButton buttonCadastroCliente = new JButton("Cadastro/Pesquisa Clientes");
-	private JButton buttonCadastroProduto = new JButton("Cadastro/Pesquisa Produtos");
-	private JButton buttonCadastroPedido = new JButton("Cadastro/Pesquisa Pedidos");
-	private JButton buttonEntradaEstoque = new JButton("Entrada/Pesquisa Estoque");
+	private JButton buttonCadastroCliente = new JButton("Cadastro e Pesquisa Clientes");
+	private JButton buttonCadastroProduto = new JButton("Cadastro e Pesquisa Produtos");
+	private JButton buttonCadastroPedido = new JButton("Cadastro e Pesquisa Pedidos");
+	private JButton buttonEntradaEstoque = new JButton("Entrada e Pesquisa Estoque");
 	private JButton buttonSair = new JButton("Sair");
 	
 	

@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -41,6 +42,7 @@ public class TelaCadastroCliente extends JFrame {
 	
 	public void tela(){
 		buttonVoltar();
+		buttonCadastrar();
 		pnBorder.setLayout(new BorderLayout());
 		pnGridBag.setLayout(new GridBagLayout());
 		pnFlow.setLayout(new GridBagLayout());
@@ -99,5 +101,26 @@ public class TelaCadastroCliente extends JFrame {
 	public void voltar(){
 		control.voltarCadastro();
 	}
+	
+	public void buttonCadastrar(){
+		
+		ActionListener cadastro = new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cadastroCliente();
+			}
+		};
+		btCadastro.addActionListener(cadastro);
+	}
+	
+	public void cadastroCliente(){
+			if(txNomeCliente.getText().isEmpty() || txEmailCliente.getText().isEmpty()){
+				JOptionPane.showMessageDialog(null,"Preencha os campos", "Erro",JOptionPane.ERROR_MESSAGE);
+			}else{
+					
+			}
+		}
+		
 	
 }
