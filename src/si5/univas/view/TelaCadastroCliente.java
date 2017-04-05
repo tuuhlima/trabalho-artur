@@ -13,8 +13,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import si5.univas.model.Cliente;
 import si5.univas.model.GBC;
 import si5.univas.controller.*;
+import si5.univas.dao.DAOException;
 
 public class TelaCadastroCliente extends JFrame {
 
@@ -108,17 +110,24 @@ public class TelaCadastroCliente extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cadastroCliente();
+				try {
+					cadastroCliente();
+				} catch (DAOException e1) {
+					e1.printStackTrace();
+				}
 			}
 		};
 		btCadastro.addActionListener(cadastro);
 	}
 	
-	public void cadastroCliente(){
+	public void cadastroCliente() throws DAOException{
 			if(txNomeCliente.getText().isEmpty() || txEmailCliente.getText().isEmpty()){
 				JOptionPane.showMessageDialog(null,"Preencha os campos", "Erro",JOptionPane.ERROR_MESSAGE);
 			}else{
-					
+				Cliente cliente = new Cliente();
+				cliente.setNome(txNomeCliente.getText());
+				cliente.setEmail(txEmailCliente.getText());
+				control.cadastroCliente(cliente);
 			}
 		}
 		
