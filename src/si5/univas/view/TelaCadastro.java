@@ -40,7 +40,6 @@ public class TelaCadastro extends JFrame {
 		setTitle("Cadastro e Pesquisa");
 		setResizable(false);
 		pack();
-		setVisible(true);
 		
 		GBC gbc1 = new GBC(1,1).setSpan(1,1).setIpad(10,10).setInsets(8,8,8,8);
 		GBC gbc2 = new GBC(1,2).setSpan(1,1).setIpad(10,10).setInsets(8,8,8,8);
@@ -52,6 +51,7 @@ public class TelaCadastro extends JFrame {
 		pnGridbag.add(buttonCadastroPedido,gbc3);
 		pnGridbag.add(buttonEntradaEstoque,gbc4);
 		pnGridbag.add(buttonSair,gbc5);
+		setVisible(true);
 	}
 	
 	public void buttonSair(){

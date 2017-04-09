@@ -8,7 +8,9 @@ import javax.swing.JOptionPane;
 import si5.univas.dao.ConnectionFactory;
 import si5.univas.dao.ClienteDAO;
 import si5.univas.dao.DAOException;
+import si5.univas.dao.ProdutoDAO;
 import si5.univas.model.Cliente;
+import si5.univas.model.Produto;
 import si5.univas.view.TelaCadastro;
 import si5.univas.view.TelaCadastroCliente;
 import si5.univas.view.TelaCadastroProduto;
@@ -64,5 +66,12 @@ public class Controller {
 		clienteDAO.insertCliente(cliente);
 	}
 	
+	public void cadastroProduto(Produto produto) throws DAOException{
+		
+		Connection connection = ConnectionFactory.createConnection();
+		
+		ProdutoDAO produtoDAO = new ProdutoDAO(connection);
+		produtoDAO.insertProduto(produto);
+	}
 	
 }

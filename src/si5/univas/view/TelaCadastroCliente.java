@@ -45,6 +45,7 @@ public class TelaCadastroCliente extends JFrame {
 	public void tela(){
 		buttonVoltar();
 		buttonCadastrar();
+		buttonPesquisar();
 		pnBorder.setLayout(new BorderLayout());
 		pnGridBag.setLayout(new GridBagLayout());
 		pnFlow.setLayout(new GridBagLayout());
@@ -60,13 +61,13 @@ public class TelaCadastroCliente extends JFrame {
 		setLocationRelativeTo(null);
 		pack();
 		
-		GBC lbNome = new GBC(1,1).setSpan(1,1).setIpad(7,7).setInsets(5,5,5,5);
-		GBC lbEmail = new GBC(1,2).setSpan(1,1).setIpad(7,7).setInsets(5,5,5,5);
-		GBC lbPesquisar = new GBC(1,0).setSpan(1,1).setIpad(7,7).setInsets(5,5,5,5);
+		GBC lbNome = new GBC(1,1).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
+		GBC lbEmail = new GBC(1,2).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
+		GBC lbPesquisar = new GBC(1,0).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
 		
-		GBC txNome = new GBC(2,1).setSpan(1,1).setIpad(7,7).setInsets(5,5,5,5);
-		GBC txEmail = new GBC(2,2).setSpan(1,1).setIpad(7,7).setInsets(5,5,5,5);
-		GBC txPesquisar = new GBC(2,0).setSpan(1,1).setIpad(7,7).setInsets(5,5,5,5);
+		GBC txNome = new GBC(2,1).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
+		GBC txEmail = new GBC(2,2).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
+		GBC txPesquisar = new GBC(2,0).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
 
 		GBC btvoltar = new GBC(1,8).setIpad(10,10);
 		GBC btcadastrar = new GBC(2,8).setIpad(10,10);
@@ -124,12 +125,48 @@ public class TelaCadastroCliente extends JFrame {
 			if(txNomeCliente.getText().isEmpty() || txEmailCliente.getText().isEmpty()){
 				JOptionPane.showMessageDialog(null,"Preencha os campos", "Erro",JOptionPane.ERROR_MESSAGE);
 			}else{
+				join();
+			}
+		}
+	
+	public void join() throws DAOException{
+		int resposta;
+		resposta = JOptionPane.showConfirmDialog(null,"Deseja realmente cadastrar?");
+		if(resposta == JOptionPane.YES_OPTION){
 				Cliente cliente = new Cliente();
 				cliente.setNome(txNomeCliente.getText());
 				cliente.setEmail(txEmailCliente.getText());
 				control.cadastroCliente(cliente);
-			}
+				clearFields();
+				JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
+		}else{
+			return;
 		}
+	}
+	
+	public void clearFields(){
+		this.txNomeCliente.setText("");
+		this.txEmailCliente.setText("");
+	}
+	
+	public void buttonPesquisar(){
 		
+		ActionListener pesquisa = new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				pesquisarCliente();
+			}
+		};
+		btPesquisa.addActionListener(pesquisa);
+	}
+		
+	public void pesquisarCliente(){
+		if(txPesquisarCliente.getText().isEmpty()){
+			JOptionPane.showMessageDialog(null,"Preencha os campos", "Erro",JOptionPane.ERROR_MESSAGE);
+		}else{
+			// fazer um foreach dentro do banco de dados buscando os clientes e retornar uma lista
+		}
+	}
 	
 }

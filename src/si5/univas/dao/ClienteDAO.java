@@ -11,11 +11,6 @@ public class ClienteDAO {
 
 	private Connection connection;
 	
-	
-	public ClienteDAO() throws DAOException {
-		connection = ConnectionFactory.createConnection();
-	}
-	
 	public ClienteDAO(Connection connection) {
 		this.connection = connection;
 	}
