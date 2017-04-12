@@ -32,20 +32,19 @@ public class TelaCadastroCliente extends JFrame {
 	
 	private JLabel lbNomeCliente = new JLabel("Nome cliente:");
 	private JLabel lbEmailCliente = new JLabel("Email cliente:");
-	private JLabel lbPesquisarCliente = new JLabel("Pesquisar:");
+	//private JLabel lbPesquisarCliente = new JLabel("Pesquisar:");
 	
 	private JTextField txNomeCliente = new JTextField(10);
 	private JTextField txEmailCliente = new JTextField(10);
-	private JTextField txPesquisarCliente = new JTextField(10);
+	//private JTextField txPesquisarCliente = new JTextField(10);
 	
 	private JButton btCadastro = new JButton("Cadastrar");
 	private JButton btVoltar = new JButton("Voltar");
-	private JButton btPesquisa = new JButton("Buscar cliente");
+	//private JButton btPesquisa = new JButton("Buscar cliente");
 	
 	public void tela(){
 		buttonVoltar();
 		buttonCadastrar();
-		buttonPesquisar();
 		pnBorder.setLayout(new BorderLayout());
 		pnGridBag.setLayout(new GridBagLayout());
 		pnFlow.setLayout(new GridBagLayout());
@@ -55,10 +54,10 @@ public class TelaCadastroCliente extends JFrame {
 		pnBorder.add(pnFlow,BorderLayout.NORTH);
 		pnBorder.add(pnButton,BorderLayout.SOUTH);
 		setPreferredSize(new Dimension(400,300));
-		setTitle("Cadastro e pesquisa de clientes");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setResizable(false);
 		setLocationRelativeTo(null);
+		setTitle("Cadastro de clientes");
+		setResizable(false);
 		pack();
 		
 		GBC lbNome = new GBC(1,1).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
@@ -83,9 +82,9 @@ public class TelaCadastroCliente extends JFrame {
 		pnButton.add(btCadastro, btcadastrar);
 		
 		
-		pnFlow.add(lbPesquisarCliente,lbPesquisar);
-		pnFlow.add(txPesquisarCliente,txPesquisar);
-		pnFlow.add(btPesquisa,btPesquisar);
+		//pnFlow.add(lbPesquisarCliente,lbPesquisar);
+		//pnFlow.add(txPesquisarCliente,txPesquisar);
+		//pnFlow.add(btPesquisa,btPesquisar);
 			
 	}
 	
@@ -148,25 +147,5 @@ public class TelaCadastroCliente extends JFrame {
 		this.txNomeCliente.setText("");
 		this.txEmailCliente.setText("");
 	}
-	
-	public void buttonPesquisar(){
 		
-		ActionListener pesquisa = new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				pesquisarCliente();
-			}
-		};
-		btPesquisa.addActionListener(pesquisa);
-	}
-		
-	public void pesquisarCliente(){
-		if(txPesquisarCliente.getText().isEmpty()){
-			JOptionPane.showMessageDialog(null,"Preencha os campos", "Erro",JOptionPane.ERROR_MESSAGE);
-		}else{
-			// fazer um foreach dentro do banco de dados buscando os clientes e retornar uma lista
-		}
-	}
-	
 }

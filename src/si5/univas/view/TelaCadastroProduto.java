@@ -31,22 +31,18 @@ public class TelaCadastroProduto extends JFrame {
 		this.control = control;
 	}
 	
-	private JLabel lbPesquisar = new JLabel("Pesquisar:");
 	private JLabel lbNomeProduto = new JLabel("Nome produto:");
 	private JLabel lbQtdProduto = new JLabel("Quantidade produto:");
 	
-	private JTextField txPesquisar = new JTextField(10);
 	private JTextField txNomeProduto = new JTextField(10);
 	private JTextField txQtdProduto = new JTextField(10);
 	
-	private JButton btPesquisar = new JButton("Buscar produto");
 	private JButton btCadastro = new JButton("Cadastrar");
 	private JButton btVoltar = new JButton("Voltar");
 	
 	public void tela(){
 		buttonVoltar();
 		buttonCadastrarProduct();
-		buttonPesquisar();
 		pnGridBag.setLayout(new GridBagLayout());
 		pnFlow.setLayout(new GridBagLayout());
 		pnButton.setLayout(new GridBagLayout());
@@ -56,34 +52,27 @@ public class TelaCadastroProduto extends JFrame {
 		pnBorder.add(pnButton,BorderLayout.SOUTH);
 		pnBorder.add(pnFlow,BorderLayout.NORTH);
 		setPreferredSize(new Dimension(400,300));
-		setTitle("Cadastro e pesquisa de produtos");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setResizable(false);
 		setLocationRelativeTo(null);
+		setTitle("Cadastro de produtos");
+		setResizable(false);
 		pack();
 		
-		GBC lbPesquisa = new GBC(1,0).setSpan(1,1).setInsets(5,5,5,5).setIpad(4,4);
 		GBC lbNome = new GBC(1,1).setSpan(1,1).setInsets(5,5,5,5).setIpad(4,4);
 		GBC lbQtd = new GBC(1,2).setSpan(1,1).setInsets(5,5,5,5).setIpad(4,4);
 
-		GBC txPesquisa = new GBC(2,0).setSpan(1,1).setInsets(5,5,5,5).setIpad(4,4);
 		GBC txNome = new GBC(2,1).setSpan(1,1).setInsets(5,5,5,5).setIpad(4,4);
 		GBC txQtd = new GBC(2,2).setSpan(1,1).setInsets(5,5,5,5).setIpad(4,4);
 
 		GBC btvoltar = new GBC(1,8).setInsets(5,5,5,5).setIpad(7,7);
 		GBC btcadastrar = new GBC(2,8).setInsets(5,5,5,5).setIpad(7,7);
-		GBC btBuscar = new GBC(1,1).setInsets(3,3,3,3).setIpad(4,4).setSpan(2,1);
-		
-		pnFlow.add(lbPesquisar,lbPesquisa);
-		pnFlow.add(txPesquisar, txPesquisa);
-		
+				
 		pnGridBag.add(lbNomeProduto,lbNome);
 		pnGridBag.add(txNomeProduto, txNome);
 		
 		pnGridBag.add(lbQtdProduto,lbQtd);
 		pnGridBag.add(txQtdProduto, txQtd);
 		
-		pnFlow.add(btPesquisar, btBuscar);
 		pnButton.add(btCadastro, btcadastrar);
 		pnButton.add(btVoltar, btvoltar);	
 	}
@@ -149,25 +138,4 @@ public class TelaCadastroProduto extends JFrame {
 		this.txNomeProduto.setText("");
 		this.txQtdProduto.setText("");
 	}
-	
-	public void buttonPesquisar(){
-		
-		ActionListener pesquisa = new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				pesquisarProduto();
-			}
-		};
-		btPesquisar.addActionListener(pesquisa);
-	}
-		
-	public void pesquisarProduto(){
-		if(txPesquisar.getText().isEmpty()){
-			JOptionPane.showMessageDialog(null,"Preencha os campos", "Erro",JOptionPane.ERROR_MESSAGE);
-		}else{
-			// fazer um foreach dentro do banco de dados buscando os clientes e retornar uma lista
-		}
-	}
-	
 }

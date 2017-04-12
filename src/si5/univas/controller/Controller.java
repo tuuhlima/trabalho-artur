@@ -11,24 +11,34 @@ import si5.univas.dao.DAOException;
 import si5.univas.dao.ProdutoDAO;
 import si5.univas.model.Cliente;
 import si5.univas.model.Produto;
-import si5.univas.view.TelaCadastro;
+import si5.univas.view.Cadastros;
+import si5.univas.view.Consultas;
+import si5.univas.view.Inicial;
 import si5.univas.view.TelaCadastroCliente;
 import si5.univas.view.TelaCadastroProduto;
 
 public class Controller {
 	
-	TelaCadastro telaCadastro = new TelaCadastro(this);
+	Inicial inicial = new Inicial(this);
 	TelaCadastroCliente telaCadastroCliente = new TelaCadastroCliente(this);
 	TelaCadastroProduto telaCadastroProduto = new TelaCadastroProduto(this);
+	Cadastros cadastros = new Cadastros(this);
+	Consultas consultas = new Consultas(this);
 	
 	public void iniciar(){
-		telaCadastro.tela();
+		inicial.tela();
 		
 		telaCadastroCliente.tela();
 		telaCadastroCliente.setVisible(false);
 		
 		telaCadastroProduto.tela();
 		telaCadastroProduto.setVisible(false);
+		
+		cadastros.tela();
+		cadastros.setVisible(false);
+		
+		consultas.tela();
+		consultas.setVisible(false);
 	}
 	
 	public void exit(){
@@ -42,19 +52,30 @@ public class Controller {
 	}
 	
 	public void cliente(){
-		telaCadastro.setVisible(false);
+		cadastros.setVisible(false);
 		telaCadastroCliente.setVisible(true);
 	}
 	
 	public void voltarCadastro(){
-		telaCadastroProduto.setVisible(false);
 		telaCadastroCliente.setVisible(false);
-		telaCadastro.setVisible(true);
+		telaCadastroProduto.setVisible(false);
+		cadastros.setVisible(true);
 	}
 	
 	public void produto(){
-		telaCadastro.setVisible(false);
+		cadastros.setVisible(false);
 		telaCadastroProduto.setVisible(true);
+	}
+	
+	public void voltarInicial(){
+		cadastros.setVisible(false);
+		consultas.setVisible(false);
+		inicial.setVisible(true);
+	}
+	
+	public void cadastros(){
+		cadastros.setVisible(true);
+		inicial.setVisible(false);
 	}
 	
 	public void cadastroCliente(Cliente cliente) throws DAOException{
@@ -72,6 +93,11 @@ public class Controller {
 		
 		ProdutoDAO produtoDAO = new ProdutoDAO(connection);
 		produtoDAO.insertProduto(produto);
+	}
+	
+	public void consultas(){
+		inicial.setVisible(false);
+		consultas.setVisible(true);
 	}
 	
 }
