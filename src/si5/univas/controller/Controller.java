@@ -1,6 +1,8 @@
 package si5.univas.controller;
 
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -98,6 +100,11 @@ public class Controller {
 	public void consultas(){
 		inicial.setVisible(false);
 		consultas.setVisible(true);
+	}
+	
+	public ArrayList<Cliente> pesquisaCliente() throws SQLException, DAOException{
+		ClienteDAO cliente = new ClienteDAO();
+		return cliente.pesquisarClientes();
 	}
 	
 }

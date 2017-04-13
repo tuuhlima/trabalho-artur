@@ -4,12 +4,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import si5.univas.model.Cliente;
 
 public class ClienteDAO {
 
 	private Connection connection;
+	
+	public ClienteDAO() throws DAOException {
+		this.connection = ConnectionFactory.createConnection();
+	}
 	
 	public ClienteDAO(Connection connection) {
 		this.connection = connection;
@@ -47,7 +52,37 @@ public class ClienteDAO {
 			} catch (SQLException exception) {
 				throw new DAOException(exception);
 			}
+	  }
+		
+		public ArrayList<Cliente> pesquisarClientes() throws SQLException{
+			
+			String sql = "SELECT * FROM cliente;";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			ArrayList<Cliente> listaClientes = new ArrayList<>();
+			
+			ResultSet result = statement.executeQuery();
+			
+			while(result.next()){
+				Cliente clientes = new Cliente();
+				
+				clientes.setCod(result.getInt("cod"));
+				clientes.setNome(result.getString("nome"));
+				clientes.setEmail(result.getString("email"));
+				
+				listaClientes.add(clientes);
+			}
+			
+			//foreach
+			for (Cliente cliente : listaClientes) {
+				System.out.println(cliente.getNome());
+				System.out.println(cliente.getEmail());
+			}
+			
+			return listaClientes;
 		}
+	
 	}
 	
 

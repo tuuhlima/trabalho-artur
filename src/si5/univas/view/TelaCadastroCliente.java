@@ -3,9 +3,11 @@ package si5.univas.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,6 +28,12 @@ public class TelaCadastroCliente extends JFrame {
 	private JPanel pnButton = new JPanel();
 	private Controller control;
 	
+	ImageIcon icone = new ImageIcon(getClass().getResource("/imagens/back.png"));
+	Image back = icone.getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH);
+	
+	ImageIcon icone2 = new ImageIcon(getClass().getResource("/imagens/check.png"));
+	Image check = icone2.getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH);
+	
 	public TelaCadastroCliente(Controller control) {
 		this.control = control;
 	}
@@ -38,8 +46,8 @@ public class TelaCadastroCliente extends JFrame {
 	private JTextField txEmailCliente = new JTextField(10);
 	//private JTextField txPesquisarCliente = new JTextField(10);
 	
-	private JButton btCadastro = new JButton("Cadastrar");
-	private JButton btVoltar = new JButton("Voltar");
+	private JButton btCadastro = new JButton("Cadastrar",new ImageIcon(check));
+	private JButton btVoltar = new JButton("Voltar",new ImageIcon(back));
 	//private JButton btPesquisa = new JButton("Buscar cliente");
 	
 	public void tela(){

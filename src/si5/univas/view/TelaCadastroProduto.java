@@ -3,9 +3,11 @@ package si5.univas.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -31,14 +33,20 @@ public class TelaCadastroProduto extends JFrame {
 		this.control = control;
 	}
 	
+	ImageIcon icone = new ImageIcon(getClass().getResource("/imagens/back.png"));
+	Image back = icone.getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH);
+	
+	ImageIcon icone2 = new ImageIcon(getClass().getResource("/imagens/check.png"));
+	Image check = icone2.getImage().getScaledInstance(30,30, Image.SCALE_SMOOTH);
+	
 	private JLabel lbNomeProduto = new JLabel("Nome produto:");
 	private JLabel lbQtdProduto = new JLabel("Quantidade produto:");
 	
 	private JTextField txNomeProduto = new JTextField(10);
 	private JTextField txQtdProduto = new JTextField(10);
 	
-	private JButton btCadastro = new JButton("Cadastrar");
-	private JButton btVoltar = new JButton("Voltar");
+	private JButton btCadastro = new JButton("Cadastrar",new ImageIcon(check));
+	private JButton btVoltar = new JButton("Voltar",new ImageIcon(back));
 	
 	public void tela(){
 		buttonVoltar();

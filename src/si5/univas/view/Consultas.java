@@ -5,12 +5,14 @@ import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import si5.univas.controller.Controller;
+import si5.univas.dao.DAOException;
 import si5.univas.model.GBC;
 
 public class Consultas extends JFrame {
@@ -34,6 +36,7 @@ public class Consultas extends JFrame {
 	public void tela(){
 		buttonSair();
 		buttonVoltar();
+		buttonPesquisaCliente();
 		pnBorder.setLayout(new BorderLayout());
 		pnGridbag.setLayout(new GridBagLayout());
 		pnButton.setLayout(new GridBagLayout());
@@ -91,6 +94,28 @@ public class Consultas extends JFrame {
 	
 	public void voltarInicial(){
 		control.voltarInicial();
+	}
+	
+	public void buttonPesquisaCliente(){
+		
+		ActionListener listener = new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					pesquisaCliente();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (DAOException e) {
+					e.printStackTrace();
+				}
+			}
+		};
+		buttonConsultaCliente.addActionListener(listener);
+	}
+	
+	public void pesquisaCliente() throws SQLException, DAOException{
+		control.pesquisaCliente();
 	}
 	
 }
