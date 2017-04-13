@@ -14,6 +14,7 @@ import si5.univas.dao.ProdutoDAO;
 import si5.univas.model.Cliente;
 import si5.univas.model.Produto;
 import si5.univas.view.Cadastros;
+import si5.univas.view.ConsultaClienteView;
 import si5.univas.view.Consultas;
 import si5.univas.view.Inicial;
 import si5.univas.view.TelaCadastroCliente;
@@ -26,8 +27,9 @@ public class Controller {
 	TelaCadastroProduto telaCadastroProduto = new TelaCadastroProduto(this);
 	Cadastros cadastros = new Cadastros(this);
 	Consultas consultas = new Consultas(this);
+	ConsultaClienteView consultaCliente = new ConsultaClienteView (this);
 	
-	public void iniciar(){
+	public void iniciar() throws SQLException, DAOException{
 		inicial.tela();
 		
 		telaCadastroCliente.tela();
@@ -41,6 +43,9 @@ public class Controller {
 		
 		consultas.tela();
 		consultas.setVisible(false);
+	
+		consultaCliente.tela();
+		consultaCliente.setVisible(false);
 	}
 	
 	public void exit(){
@@ -102,9 +107,17 @@ public class Controller {
 		consultas.setVisible(true);
 	}
 	
+	public void consultaCliente(){
+		consultas.setVisible(false);
+		consultaCliente.setVisible(true);
+	}
+	
+	
+	
 	public ArrayList<Cliente> pesquisaCliente() throws SQLException, DAOException{
 		ClienteDAO cliente = new ClienteDAO();
 		return cliente.pesquisarClientes();
+		
 	}
 	
 }

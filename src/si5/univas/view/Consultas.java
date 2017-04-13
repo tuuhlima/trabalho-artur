@@ -115,6 +115,7 @@ public class Consultas extends JFrame {
 	}
 	
 	public void pesquisaCliente() throws SQLException, DAOException{
+		control.consultaCliente();
 		control.pesquisaCliente();
 	}
 	
