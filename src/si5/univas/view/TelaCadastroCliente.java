@@ -40,15 +40,12 @@ public class TelaCadastroCliente extends JFrame {
 	
 	private JLabel lbNomeCliente = new JLabel("Nome cliente:");
 	private JLabel lbEmailCliente = new JLabel("Email cliente:");
-	//private JLabel lbPesquisarCliente = new JLabel("Pesquisar:");
 	
 	private JTextField txNomeCliente = new JTextField(10);
 	private JTextField txEmailCliente = new JTextField(10);
-	//private JTextField txPesquisarCliente = new JTextField(10);
 	
 	private JButton btCadastro = new JButton("Cadastrar",new ImageIcon(check));
 	private JButton btVoltar = new JButton("Voltar",new ImageIcon(back));
-	//private JButton btPesquisa = new JButton("Buscar cliente");
 	
 	public void tela(){
 		buttonVoltar();
@@ -63,22 +60,18 @@ public class TelaCadastroCliente extends JFrame {
 		pnBorder.add(pnButton,BorderLayout.SOUTH);
 		setPreferredSize(new Dimension(400,300));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
 		setTitle("Cadastro de clientes");
 		setResizable(false);
 		pack();
 		
 		GBC lbNome = new GBC(1,1).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
 		GBC lbEmail = new GBC(1,2).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
-		GBC lbPesquisar = new GBC(1,0).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
 		
 		GBC txNome = new GBC(2,1).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
 		GBC txEmail = new GBC(2,2).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
-		GBC txPesquisar = new GBC(2,0).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
 
 		GBC btvoltar = new GBC(1,8).setIpad(10,10);
 		GBC btcadastrar = new GBC(2,8).setIpad(10,10);
-		GBC btPesquisar = new GBC(1,1).setInsets(3,3,3,3).setIpad(4,4).setSpan(2,1);
 		
 		pnGridBag.add(lbNomeCliente,lbNome);
 		pnGridBag.add(txNomeCliente, txNome);
@@ -88,12 +81,7 @@ public class TelaCadastroCliente extends JFrame {
 		
 		pnButton.add(btVoltar, btvoltar);
 		pnButton.add(btCadastro, btcadastrar);
-		
-		
-		//pnFlow.add(lbPesquisarCliente,lbPesquisar);
-		//pnFlow.add(txPesquisarCliente,txPesquisar);
-		//pnFlow.add(btPesquisa,btPesquisar);
-			
+		setLocationRelativeTo(null);		
 	}
 	
 	public void buttonVoltar(){

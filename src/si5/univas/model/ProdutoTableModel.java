@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
-public class ClienteTableModel extends DefaultTableModel {
+public class ProdutoTableModel extends DefaultTableModel {
+	
+	private ArrayList<Produto> internalList;
+	private String[] header = new String[] {"Código","Nome","Quantidade estoque"};
 
-	private ArrayList<Cliente> internalList;
-	private String[] header = new String[] {"Código","Nome","Email"};
-
-	public ClienteTableModel(ArrayList<Cliente> newList) {
+	public ProdutoTableModel(ArrayList<Produto> newList) {
 		this.internalList = newList;
 	}
 	
@@ -33,15 +33,15 @@ public class ClienteTableModel extends DefaultTableModel {
 
 	@Override
 	public Object getValueAt(int row, int column) {
-		Cliente cliente = internalList.get(row);
+		Produto produto = internalList.get(row);
 		if (column == 0) {
-			return cliente.getCod();
+			return produto.getCod();
 		} else if (column == 1) {
-			return cliente.getNome();
+			return produto.getNome();
 		} else if(column == 2) {
-			return cliente.getEmail();
+			return produto.getQtd();
 		}
-		return cliente;
+		return produto;
 	}
 	
 }

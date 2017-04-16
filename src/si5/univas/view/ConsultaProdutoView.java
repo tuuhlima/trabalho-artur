@@ -3,32 +3,25 @@ package si5.univas.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import si5.univas.controller.Controller;
 import si5.univas.dao.DAOException;
-import si5.univas.model.Cliente;
-import si5.univas.model.ClienteTableModel;
+import si5.univas.model.ProdutoTableModel;
 
+public class ConsultaProdutoView extends JFrame {
 
-public class ConsultaClienteView extends JFrame{
-	
 	private Controller control;
-		
+	
 	private JPanel pnBase = new JPanel();
 	private JPanel pnBorder = new JPanel();
 	
-   public ConsultaClienteView(Controller control) {
+   public ConsultaProdutoView(Controller control) {
 		this.control = control;
 	}
 	
@@ -37,7 +30,7 @@ public class ConsultaClienteView extends JFrame{
 	}
 	
 	public void tela() throws SQLException, DAOException{
-		ClienteTableModel model = new ClienteTableModel(control.pesquisaCliente());
+		ProdutoTableModel model = new ProdutoTableModel(control.pesquisaProduto());
 		JTable table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
 		pnBase.add(scroll);
@@ -47,8 +40,9 @@ public class ConsultaClienteView extends JFrame{
 		setPreferredSize(new Dimension(480,400));
 		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setTitle("Consulta - Clientes");
+		setTitle("Consulta - Produtos");
 		setResizable(false);
 		pack();
 	}
+	
 }

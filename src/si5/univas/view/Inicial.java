@@ -16,10 +16,7 @@ import si5.univas.controller.Controller;
 import si5.univas.model.GBC;
 
 public class Inicial extends JFrame {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private Controller control;
 	
@@ -46,19 +43,21 @@ public class Inicial extends JFrame {
 	private JButton buttonCadastros = new JButton("Cadastros",new ImageIcon(i));
 	private JButton buttonConsultas = new JButton("Consultas",new ImageIcon(i2));
 	private JButton buttonPedido = new JButton("Gerar pedidos",new ImageIcon(i4));
-	private JButton buttonEntradaEstoque = new JButton("Entrada e saida estoque",new ImageIcon(i5));
+	private JButton buttonEstoque = new JButton("Entrada e saida estoque",new ImageIcon(i5));
 	private JButton buttonSair = new JButton("Sair",new ImageIcon(i3));
+	
 	
 	
 	public void tela(){
 		buttonSair();
 		buttonCliente();
 		buttonConsultas();
+		buttonPedidos();
+		buttonEstoque();
 		setContentPane(pnGridbag);
 		pnGridbag.setLayout(new GridBagLayout());
 		setPreferredSize(new Dimension(400,400));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
 		setTitle("Tela inicial");
 		setResizable(false);
 		pack();
@@ -71,8 +70,9 @@ public class Inicial extends JFrame {
 		pnGridbag.add(buttonCadastros,gbc1);
 		pnGridbag.add(buttonConsultas,gbc2);
 		pnGridbag.add(buttonPedido,gbc3);
-		pnGridbag.add(buttonEntradaEstoque,gbc4);
-		pnGridbag.add(buttonSair,gbc5);	
+		pnGridbag.add(buttonEstoque,gbc4);
+		pnGridbag.add(buttonSair,gbc5);
+		setLocationRelativeTo(null);
 		setVisible(true);
 	}
 	
@@ -123,6 +123,38 @@ public class Inicial extends JFrame {
 	
 	public void consultas(){
 		control.consultas();
+	}
+	
+	public void buttonPedidos(){
+		
+		ActionListener listener = new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				pedido();
+			}
+		};
+		buttonPedido.addActionListener(listener);
+	}
+	
+	public void pedido(){
+		control.pedidos();
+	}
+	
+	public void buttonEstoque(){
+		
+		ActionListener listener = new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				estoque();
+			}
+		};
+		buttonEstoque.addActionListener(listener);
+	}
+	
+	public void estoque(){
+		control.estoque();
 	}
 	
 }
