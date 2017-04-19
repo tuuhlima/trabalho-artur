@@ -22,14 +22,11 @@ import si5.univas.model.ClienteTableModel;
 
 
 public class ConsultaClienteView extends JFrame{
+	
 	private Controller control;
-	
-	private JButton btvoltar = new JButton("Voltar");
-	private JButton btSair = new JButton("Sair");
-	
+		
 	private JPanel pnBase = new JPanel();
 	private JPanel pnBorder = new JPanel();
-	private JPanel pnFlow = new JPanel();
 	
    public ConsultaClienteView(Controller control) {
 		this.control = control;
@@ -37,10 +34,6 @@ public class ConsultaClienteView extends JFrame{
 	
 	public void init() throws SQLException, DAOException{
 		tela();
-		addButton();
-		eventVoltar();
-		eventSair();
-		
 	}
 	
 	public void tela() throws SQLException, DAOException{
@@ -49,50 +42,13 @@ public class ConsultaClienteView extends JFrame{
 		JScrollPane scroll = new JScrollPane(table);
 		pnBase.add(scroll);
 		pnBorder.setLayout(new BorderLayout());
-		pnFlow.setLayout(new FlowLayout());
 		setContentPane(pnBorder);
 		pnBorder.add(pnBase,BorderLayout.CENTER);
-		pnBorder.add(pnFlow, BorderLayout.SOUTH);
-		setPreferredSize(new Dimension(480,650));
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(480,400));
+		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setTitle("Consulta - Cliente");
+		setTitle("Consulta - Clientes");
 		setResizable(false);
 		pack();
-	}
-	
-	public void addButton(){
-		pnFlow.add(btvoltar);
-		pnFlow.add(btSair);
-	}
-	
-	public void eventVoltar(){
-		ActionListener voltar = new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				volta();
-			}
-		};
-		btvoltar.addActionListener(voltar);
-	}
-	
-	public void volta(){
-	//	control.livroToUser();
-	}
-	
-	public void eventSair(){
-		ActionListener sair = new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				sair();
-			}
-		};
-		btSair.addActionListener(sair);
-	}
-	
-	public void sair(){
-		control.exit();
 	}
 }

@@ -10,6 +10,11 @@ public class Produto {
 		return cod;
 	}
 	
+	@Override
+	public String toString() {
+		return ""+nome+"";
+	}
+
 	public void setCod(int cod) {
 		this.cod = cod;
 	}

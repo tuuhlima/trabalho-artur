@@ -72,14 +72,8 @@ public class ClienteDAO {
 				clientes.setEmail(result.getString("email"));
 				
 				listaClientes.add(clientes);
+				
 			}
-			
-			//foreach
-			for (Cliente cliente : listaClientes) {
-				System.out.println(cliente.getNome());
-				System.out.println(cliente.getEmail());
-			}
-			
 			return listaClientes;
 		}
 	

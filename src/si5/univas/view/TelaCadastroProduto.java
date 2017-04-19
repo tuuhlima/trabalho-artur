@@ -61,7 +61,6 @@ public class TelaCadastroProduto extends JFrame {
 		pnBorder.add(pnFlow,BorderLayout.NORTH);
 		setPreferredSize(new Dimension(400,300));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
 		setTitle("Cadastro de produtos");
 		setResizable(false);
 		pack();
@@ -82,7 +81,8 @@ public class TelaCadastroProduto extends JFrame {
 		pnGridBag.add(txQtdProduto, txQtd);
 		
 		pnButton.add(btCadastro, btcadastrar);
-		pnButton.add(btVoltar, btvoltar);	
+		pnButton.add(btVoltar, btvoltar);
+		setLocationRelativeTo(null);
 	}
 	
 	public void buttonVoltar(){

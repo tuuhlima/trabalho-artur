@@ -36,7 +36,6 @@ public class TelaCadastro extends JFrame {
 		pnGridbag.setLayout(new GridBagLayout());
 		setPreferredSize(new Dimension(400,350));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
 		setTitle("Cadastro e Pesquisa");
 		setResizable(false);
 		pack();
@@ -52,6 +51,7 @@ public class TelaCadastro extends JFrame {
 		pnGridbag.add(buttonEntradaEstoque,gbc4);
 		pnGridbag.add(buttonSair,gbc5);
 		setVisible(true);
+		setLocationRelativeTo(null);
 	}
 	
 	public void buttonSair(){
