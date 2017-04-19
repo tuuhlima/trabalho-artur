@@ -36,6 +36,10 @@ public class Controller {
 	TelaCadastroPedido telaCadastroPedido = new TelaCadastroPedido(this);
 	ConsultaClienteView consultaCliente = new ConsultaClienteView (this);
 	ConsultaProdutoView consultaProduto = new ConsultaProdutoView(this);
+<<<<<<< HEAD
+=======
+	
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 	
 	
 	public void iniciar() throws SQLException, DAOException, ParseException{
@@ -154,6 +158,14 @@ public class Controller {
 	public ArrayList<Cliente> pesquisaCliente() throws SQLException, DAOException{
 		ClienteDAO cliente = new ClienteDAO();
 		return cliente.pesquisarClientes();
+<<<<<<< HEAD
+=======
+	}
+	
+	public ArrayList<Produto> pesquisaProduto() throws SQLException, DAOException{
+		ProdutoDAO produto = new ProdutoDAO();
+		return produto.pesquisarProduto();
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 	}
 	
 	public ArrayList<Produto> pesquisaProduto() throws SQLException, DAOException{

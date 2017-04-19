@@ -2,10 +2,15 @@ package si5.univas.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+<<<<<<< HEAD
+=======
+import java.awt.FlowLayout;
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -14,10 +19,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+=======
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+<<<<<<< HEAD
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -32,6 +43,12 @@ import si5.univas.model.GBC;
 import si5.univas.model.Pedido;
 import si5.univas.model.Produto;
 import si5.univas.model.ProdutoComboModel;
+=======
+import javax.swing.JTextField;
+
+import si5.univas.controller.Controller;
+import si5.univas.model.GBC;
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 
 public class TelaCadastroPedido extends JFrame {
 
@@ -48,6 +65,7 @@ public class TelaCadastroPedido extends JFrame {
 	private JPanel pnBaixo = new JPanel();
 	private JPanel pnPrincipal = new JPanel();
 	
+<<<<<<< HEAD
 	private JTable dataTable;
 	private DefaultTableModel dataTableModel;
 	private JScrollPane dataScrollPane;
@@ -93,16 +111,30 @@ public class TelaCadastroPedido extends JFrame {
 	private JFormattedTextField txData = new JFormattedTextField(8);
 	private MaskFormatter ftmData;
 	
+=======
+	private JLabel lbCliente = new JLabel("Cliente:");
+	private JLabel lbProduto = new JLabel("Produto:");
+	private JLabel lbQuantidade = new JLabel("Quantidade");
+	
+	private JTextField txCliente = new JTextField(10);
+	private JTextField txProduto = new JTextField(10);
+	private JTextField txQuantidade = new JTextField(5);
+	
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 	private JButton buttonAdd = new JButton("+");
 	private JButton buttonVoltar = new JButton("Voltar",new ImageIcon(back));
 	private JButton buttonFinalizar = new JButton("Finalizar",new ImageIcon(check));
 	
+<<<<<<< HEAD
 	private ProdutoComboModel produtoModel;
+=======
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 	
 	public TelaCadastroPedido(Controller control) {
 		this.control = control;
 	}
 	
+<<<<<<< HEAD
 	public void tela() throws ParseException, SQLException, DAOException{
 		buttonAdd();
 		buttonVoltar();
@@ -110,6 +142,12 @@ public class TelaCadastroPedido extends JFrame {
 		TextFieldComMascara();
 		comboBoxCliente();
 		comboBoxProduto();
+=======
+	public void tela(){
+		buttonAdd();
+		buttonVoltar();
+		buttonFinalizar();
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 		pnCentro.setLayout(new GridBagLayout());
 		pnCima.setLayout(new GridBagLayout());
 		pnBaixo.setLayout(new GridBagLayout());
@@ -118,7 +156,11 @@ public class TelaCadastroPedido extends JFrame {
 		pnPrincipal.add(pnCentro,BorderLayout.CENTER);
 		pnPrincipal.add(pnCima, BorderLayout.NORTH);
 		pnPrincipal.add(pnBaixo, BorderLayout.SOUTH);
+<<<<<<< HEAD
 		setPreferredSize(new Dimension(500,500));
+=======
+		setPreferredSize(new Dimension(400,300));
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle("Gerar Pedido");
 		setResizable(false);
@@ -127,12 +169,18 @@ public class TelaCadastroPedido extends JFrame {
 		GBC lbClienteGBC = new GBC(1,1).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
 		GBC lbProdutoGBC = new GBC(1,2).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
 		GBC lbQuantidadeGBC = new GBC(3,2).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
+<<<<<<< HEAD
 		GBC lbDataGBC = new GBC(3,1).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
+=======
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 		
 		GBC txClienteGBC = new GBC(2,1).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
 		GBC txProdutoGBC = new GBC(2,2).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
 		GBC txQuantidadeGBC = new GBC(4,2).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
+<<<<<<< HEAD
 		GBC txDataGBC = new GBC(4,1).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
+=======
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 		
 		GBC buttonAddGBC = new GBC(5,2);
 		GBC buttonVoltarGBC = new GBC(1,1).setSpan(1,1).setIpad(4,4).setInsets(5,5,5,5);
@@ -145,12 +193,16 @@ public class TelaCadastroPedido extends JFrame {
 		pnCima.add(lbQuantidade,lbQuantidadeGBC);
 		pnCima.add(txQuantidade, txQuantidadeGBC);
 		pnCima.add(buttonAdd,buttonAddGBC);
+<<<<<<< HEAD
 		pnCima.add(lbData, lbDataGBC);
 		pnCima.add(txData, txDataGBC);
+=======
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 		
 		pnBaixo.add(buttonVoltar,buttonVoltarGBC);
 		pnBaixo.add(buttonFinalizar, buttonFinalizarGBC);
 		
+<<<<<<< HEAD
 		pnCentro.add(getDataScrollPane());
 		
 		setLocationRelativeTo(null);
@@ -175,6 +227,11 @@ public class TelaCadastroPedido extends JFrame {
 		ftmData.setValidCharacters("0123456789");
 	}
 	
+=======
+		setLocationRelativeTo(null);
+	}
+	
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 	public void buttonVoltar(){
 		
 		ActionListener listener = new ActionListener() {
@@ -204,6 +261,7 @@ public class TelaCadastroPedido extends JFrame {
 	}
 	
 	public void add(){
+<<<<<<< HEAD
 		if(txQuantidade.getText().isEmpty()|| txData.getText().isEmpty()){
 			JOptionPane.showMessageDialog(null,"Preencha os campos", "Erro",JOptionPane.ERROR_MESSAGE);
 		}else{
@@ -214,6 +272,12 @@ public class TelaCadastroPedido extends JFrame {
 			String[] row = new String[] { text1, text2 };
 			getDataTableModel().addRow(row);
 			clear();
+=======
+		if(txCliente.getText().isEmpty() || txProduto.getText().isEmpty() || txQuantidade.getText().isEmpty()){
+			JOptionPane.showMessageDialog(null,"Preencha os campos", "Erro",JOptionPane.ERROR_MESSAGE);
+		}else{
+			
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 		}
 	}
 	
@@ -223,16 +287,21 @@ public class TelaCadastroPedido extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 				try {
 					finalizar();
 				} catch (DAOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+=======
+				finalizar();
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 			}
 		};
 		buttonFinalizar.addActionListener(listener);
 	}
+<<<<<<< HEAD
 	
 	public void finalizar() throws DAOException{
 		if(txData.getText().isEmpty()){
@@ -253,6 +322,14 @@ public class TelaCadastroPedido extends JFrame {
 				JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
 		}else{
 			return;
+=======
+	
+	public void finalizar(){
+		if(txCliente.getText().isEmpty() || txProduto.getText().isEmpty() || txQuantidade.getText().isEmpty()){
+			JOptionPane.showMessageDialog(null,"Preencha os campos", "Erro",JOptionPane.ERROR_MESSAGE);
+		}else{
+			
+>>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 		}
 	}
 	
