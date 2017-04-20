@@ -58,7 +58,6 @@ public class Cadastros extends JFrame {
 		pnBorder.add(pnGridbag,BorderLayout.CENTER);
 		setPreferredSize(new Dimension(400,350));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
 		setTitle("Tela de cadastros");
 		setResizable(false);
 		pack();
@@ -73,6 +72,7 @@ public class Cadastros extends JFrame {
 		
 		pnButton.add(buttonVoltar,gbc3);
 		pnButton.add(buttonSair,gbc4);
+		setLocationRelativeTo(null);
 	}
 	
 	public void buttonCadastroCliente(){

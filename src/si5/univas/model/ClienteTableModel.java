@@ -12,7 +12,7 @@ public class ClienteTableModel extends DefaultTableModel {
 	public ClienteTableModel(ArrayList<Cliente> newList) {
 		this.internalList = newList;
 	}
-
+	
 	@Override
 	public int getRowCount() {
 		if (internalList == null) {

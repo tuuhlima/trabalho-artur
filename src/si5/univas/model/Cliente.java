@@ -2,6 +2,10 @@ package si5.univas.model;
 
 public class Cliente {
 
+	@Override
+	public String toString() {
+		return " " + cod +" "+nome+"";
+	}
 	private int cod;
 	private String nome;
 	private String email;

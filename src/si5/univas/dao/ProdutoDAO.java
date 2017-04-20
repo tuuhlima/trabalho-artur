@@ -4,17 +4,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import si5.univas.model.Cliente;
 import si5.univas.model.Produto;
 
 public class ProdutoDAO {
 
-	
 	private Connection connection;
 	
 	public ProdutoDAO(Connection connection) {
 		this.connection = connection;
+	}
+	
+	public ProdutoDAO() throws DAOException {
+		this.connection = ConnectionFactory.createConnection();
 	}
 	
 	private int nextCode() throws DAOException {
@@ -50,6 +54,27 @@ public class ProdutoDAO {
 			throw new DAOException(exception);
 		}
 	}
-
 	
+	
+	public ArrayList<Produto> pesquisarProduto() throws SQLException{
+		
+		String sql = "SELECT * FROM produto;";
+		
+		PreparedStatement statement = connection.prepareStatement(sql);
+		
+		ArrayList<Produto> listaProdutos = new ArrayList<>();
+		
+		ResultSet result = statement.executeQuery();
+		
+		while(result.next()){
+			Produto produtos = new Produto();
+			
+			produtos.setCod(result.getInt("cod"));
+			produtos.setNome(result.getString("nome"));
+			produtos.setQtd(result.getInt("qtd"));
+			
+			listaProdutos.add(produtos);
+		}
+		return listaProdutos;
+	}
 }
