@@ -54,6 +54,34 @@ public class ProdutoDAO {
 			throw new DAOException(exception);
 		}
 	}
+<<<<<<< HEAD
+=======
+	
+	
+	public ArrayList<Produto> pesquisarProduto() throws SQLException{
+		
+		String sql = "SELECT * FROM produto;";
+		
+		PreparedStatement statement = connection.prepareStatement(sql);
+		
+		ArrayList<Produto> listaProdutos = new ArrayList<>();
+		
+		ResultSet result = statement.executeQuery();
+		
+		while(result.next()){
+			Produto produtos = new Produto();
+			
+			produtos.setCod(result.getInt("cod"));
+			produtos.setNome(result.getString("nome"));
+			produtos.setQtd(result.getInt("qtd"));
+			
+			listaProdutos.add(produtos);
+		}
+		return listaProdutos;
+	}
+	
+
+>>>>>>> 55bbe1c30dc83b3cbf3a472192ba432870660376
 	
 	
 	public ArrayList<Produto> pesquisarProduto() throws SQLException{

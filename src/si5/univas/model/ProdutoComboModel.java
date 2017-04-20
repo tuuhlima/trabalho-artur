@@ -35,7 +35,11 @@ public class ProdutoComboModel implements ComboBoxModel<Produto> {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Produto getSelectedItem() {
+=======
+	public Object getSelectedItem() {
+>>>>>>> 55bbe1c30dc83b3cbf3a472192ba432870660376
 		return produtoSelecionado;
 	}
 
