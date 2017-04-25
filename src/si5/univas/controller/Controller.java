@@ -10,21 +10,16 @@ import javax.swing.JOptionPane;
 import si5.univas.dao.ClienteDAO;
 import si5.univas.dao.ConnectionFactory;
 import si5.univas.dao.DAOException;
-<<<<<<< HEAD
 import si5.univas.dao.ItemDAO;
 import si5.univas.dao.PedidoDAO;
 import si5.univas.dao.ProdutoDAO;
 import si5.univas.model.Cliente;
 import si5.univas.model.Item;
-=======
-import si5.univas.dao.PedidoDAO;
-import si5.univas.dao.ProdutoDAO;
-import si5.univas.model.Cliente;
->>>>>>> 55bbe1c30dc83b3cbf3a472192ba432870660376
 import si5.univas.model.Pedido;
 import si5.univas.model.Produto;
 import si5.univas.view.Cadastros;
 import si5.univas.view.ConsultaClienteView;
+import si5.univas.view.ConsultaPedidoView;
 import si5.univas.view.ConsultaProdutoView;
 import si5.univas.view.Consultas;
 import si5.univas.view.Estoque;
@@ -44,16 +39,8 @@ public class Controller {
 	TelaCadastroPedido telaCadastroPedido = new TelaCadastroPedido(this);
 	ConsultaClienteView consultaCliente = new ConsultaClienteView (this);
 	ConsultaProdutoView consultaProduto = new ConsultaProdutoView(this);
-<<<<<<< HEAD
+	ConsultaPedidoView consultaPedido = new ConsultaPedidoView(this);
 	
-=======
-<<<<<<< HEAD
-=======
-	
->>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
-	
-	
->>>>>>> 55bbe1c30dc83b3cbf3a472192ba432870660376
 	public void iniciar() throws SQLException, DAOException, ParseException{
 		inicial.tela();
 		
@@ -80,6 +67,9 @@ public class Controller {
 		
 		estoque.tela();
 		estoque.setVisible(false);
+		
+		consultaPedido.tela();
+		consultaPedido.setVisible(false);
 	}
 	
 	public void exit(){
@@ -157,9 +147,14 @@ public class Controller {
 		consultaCliente.setVisible(true);
 	}
 	
-	public void consultaProduto(){
+	public void consultaProduto() {
 		consultas.setVisible(true);
-		consultaProduto.setVisible(true);
+		consultaProduto.setVisible(true);	
+	}
+	
+	public void consultaPedido(){
+		consultas.setVisible(true);
+		consultaPedido.setVisible(true);
 	}
 	
 	public void estoque(){
@@ -170,38 +165,27 @@ public class Controller {
 	public ArrayList<Cliente> pesquisaCliente() throws SQLException, DAOException{
 		ClienteDAO cliente = new ClienteDAO();
 		return cliente.pesquisarClientes();
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 55bbe1c30dc83b3cbf3a472192ba432870660376
 	}
 	
 	public ArrayList<Produto> pesquisaProduto() throws SQLException, DAOException{
 		ProdutoDAO produto = new ProdutoDAO();
 		return produto.pesquisarProduto();
-<<<<<<< HEAD
-=======
->>>>>>> bf453fbb42870e6493fa631f1a9d4adbe1cf5968
 	}
 	
-	public ArrayList<Produto> pesquisaProduto() throws SQLException, DAOException{
-		ProdutoDAO produto = new ProdutoDAO();
-		return produto.pesquisarProduto();
->>>>>>> 55bbe1c30dc83b3cbf3a472192ba432870660376
+	public ArrayList<Item> pesquisaItem() throws SQLException,DAOException{
+		ItemDAO item = new ItemDAO();
+		return item.pesquisarItens();
 	}
-	
-	public void cadastrarPedido(Cliente cliente, Pedido pedido) throws DAOException{
-		PedidoDAO pedidoDAO = new PedidoDAO();
-		pedidoDAO.insertPedido(pedido, cliente);
-	}
-<<<<<<< HEAD
 	
 	public void cadastrarItem(Cliente cliente,ArrayList<Item> item) throws DAOException{
 		ItemDAO itemDAO = new ItemDAO();
+		for (Item itens : item) {
+			System.out.println();
+		}
+		
 	}
-=======
->>>>>>> 55bbe1c30dc83b3cbf3a472192ba432870660376
+	
+	
 		
 	
 	

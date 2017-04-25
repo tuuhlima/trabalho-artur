@@ -2,7 +2,6 @@ package si5.univas.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.sql.SQLException;
 
 import javax.swing.JFrame;
@@ -12,18 +11,16 @@ import javax.swing.JTable;
 
 import si5.univas.controller.Controller;
 import si5.univas.dao.DAOException;
-import si5.univas.model.ProdutoTableModel;
+import si5.univas.model.ItemTableModel;
 
-public class ConsultaProdutoView extends JFrame {
+public class ConsultaPedidoView extends JFrame{
 
 	private Controller control;
 	
 	private JPanel pnBase = new JPanel();
 	private JPanel pnBorder = new JPanel();
 	
-	private ProdutoTableModel model;
-	
-   public ConsultaProdutoView(Controller control) {
+   public ConsultaPedidoView(Controller control) {
 		this.control = control;
 	}
 	
@@ -32,7 +29,7 @@ public class ConsultaProdutoView extends JFrame {
 	}
 	
 	public void tela() throws SQLException, DAOException{
-		model = new ProdutoTableModel(control.pesquisaProduto());
+		ItemTableModel model = new ItemTableModel(control.pesquisaItem());
 		JTable table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
 		pnBase.add(scroll);
@@ -42,8 +39,9 @@ public class ConsultaProdutoView extends JFrame {
 		setPreferredSize(new Dimension(480,400));
 		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setTitle("Consulta - Produtos");
+		setTitle("Consulta - Pedidos");
 		setResizable(false);
 		pack();
 	}
+	
 }

@@ -1,5 +1,7 @@
 package si5.univas.model;
 
+import java.util.Date;
+
 public class Pedido {
 
 	private int cod;

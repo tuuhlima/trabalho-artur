@@ -55,6 +55,7 @@ public class Consultas extends JFrame {
 		buttonVoltar();
 		buttonPesquisaCliente();
 		buttonPesquisaProduto();
+		buttonPesquisaPedido();
 		pnBorder.setLayout(new BorderLayout());
 		pnGridbag.setLayout(new GridBagLayout());
 		pnButton.setLayout(new GridBagLayout());
@@ -159,5 +160,25 @@ public class Consultas extends JFrame {
 		control.pesquisaProduto();
 	}
 	
+	public void buttonPesquisaPedido(){
+		
+		ActionListener listener = new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					pesquisaPedido();
+				} catch (SQLException | DAOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		};
+		buttonConsultaPedido.addActionListener(listener);
+	}
+	
+	public void pesquisaPedido() throws SQLException, DAOException{
+		control.pesquisaItem();
+		control.consultaPedido();
+	}
 	
 }

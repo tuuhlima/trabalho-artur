@@ -43,17 +43,9 @@ public class Inicial extends JFrame {
 	private JButton buttonCadastros = new JButton("Cadastros",new ImageIcon(i));
 	private JButton buttonConsultas = new JButton("Consultas",new ImageIcon(i2));
 	private JButton buttonPedido = new JButton("Gerar pedidos",new ImageIcon(i4));
-<<<<<<< HEAD
 	private JButton buttonEstoque = new JButton("Entrada estoque",new ImageIcon(i5));
 	private JButton buttonSair = new JButton("Sair",new ImageIcon(i3));
 	
-=======
-	private JButton buttonEstoque = new JButton("Entrada e saida estoque",new ImageIcon(i5));
-	private JButton buttonSair = new JButton("Sair",new ImageIcon(i3));
-	
-	
-	
->>>>>>> 55bbe1c30dc83b3cbf3a472192ba432870660376
 	public void tela(){
 		buttonSair();
 		buttonCliente();

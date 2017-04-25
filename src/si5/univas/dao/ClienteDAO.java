@@ -39,8 +39,7 @@ public class ClienteDAO {
 	public void insertCliente(Cliente cliente)throws DAOException{
 		
 			try {
-				// Buscando o próximo valor da sequência e atribuindo ao objeto
-				cliente.setCod(nextCode());
+				//cliente.setCod(nextCode());
 				
 				String sql = "INSERT INTO cliente (nome,email) VALUES (?,?)";
 				

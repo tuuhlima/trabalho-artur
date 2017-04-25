@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
 import si5.univas.model.Cliente;
 import si5.univas.model.Produto;
 
@@ -54,8 +55,31 @@ public class ProdutoDAO {
 			throw new DAOException(exception);
 		}
 	}
-<<<<<<< HEAD
-=======
+	
+	public Produto findForUpdate(int code) throws DAOException {
+		try {
+			String sql = "SELECT * FROM produto WHERE cod = ? FOR UPDATE";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, code);
+			
+			ResultSet result = statement.executeQuery();
+			
+			if(result.next()) {
+				Produto produto = new Produto();
+				
+				produto.setCod(code);
+				produto.setNome(result.getString("nome"));
+				produto.setQtd(result.getInt("qtd"));
+				
+				return produto;
+			} else {
+				return null;
+			}
+		} catch (SQLException exception) {
+			throw new DAOException(exception);
+		}
+	}
 	
 	
 	public ArrayList<Produto> pesquisarProduto() throws SQLException{
@@ -80,29 +104,40 @@ public class ProdutoDAO {
 		return listaProdutos;
 	}
 	
-
->>>>>>> 55bbe1c30dc83b3cbf3a472192ba432870660376
-	
-	
-	public ArrayList<Produto> pesquisarProduto() throws SQLException{
-		
-		String sql = "SELECT * FROM produto;";
-		
-		PreparedStatement statement = connection.prepareStatement(sql);
-		
-		ArrayList<Produto> listaProdutos = new ArrayList<>();
-		
-		ResultSet result = statement.executeQuery();
-		
-		while(result.next()){
-			Produto produtos = new Produto();
+	public void update(Produto produto) throws DAOException {
+		try {
+			String sql = "UPDATE produto set nome = ?, qtd = ? WHERE cod = ?";
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, produto.getNome());
+			statement.setInt(2, produto.getQtd());
+			statement.setInt(3, produto.getCod());
 			
-			produtos.setCod(result.getInt("cod"));
-			produtos.setNome(result.getString("nome"));
-			produtos.setQtd(result.getInt("qtd"));
-			
-			listaProdutos.add(produtos);
+			statement.executeUpdate();
+		} catch (SQLException exception) {
+			throw new DAOException(exception);
 		}
-		return listaProdutos;
 	}
+	
+	public void updateQtd(int code,int qtd) throws DAOException {
+		try {
+			String sql = "SELECT * FROM produto WHERE cod = ? FOR UPDATE";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, code);
+			
+			ResultSet result = statement.executeQuery();
+			
+			if(result.next()) {
+				Produto produto = new Produto();
+				
+				produto.setCod(code);
+				produto.setNome(result.getString("nome"));
+				produto.setQtd(result.getInt("qtd")+qtd);
+				
+			}
+		} catch (SQLException exception) {
+			throw new DAOException(exception);
+		}
+	}
+	
 }
