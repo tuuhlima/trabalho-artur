@@ -1,5 +1,5 @@
 package si5.univas.BI;
-import si5.univas.model.Produto;
+import si5.univas.entity.Produto;
 
 
 public class OrderException extends Exception {

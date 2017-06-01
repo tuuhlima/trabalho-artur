@@ -15,10 +15,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import si5.univas.model.Cliente;
 import si5.univas.model.GBC;
 import si5.univas.controller.*;
 import si5.univas.dao.DAOException;
+import si5.univas.entity.Cliente;
 
 public class TelaCadastroCliente extends JFrame {
 

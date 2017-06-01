@@ -1,67 +1,49 @@
 package si5.univas.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 
-import si5.univas.model.Cliente;
-import si5.univas.model.Pedido;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
-public class PedidoDAO {
+import edu.univas.si4.entity.Cliente;
+import edu.univas.si4.entity.Pedido;
 
-	private Connection connection;
-	
-	public PedidoDAO() throws DAOException {
-		this.connection = ConnectionFactory.createConnection();
+public class PedidoDAO extends GenericDAO<Pedido, Integer> {
+
+	public PedidoDAO() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	
-	public PedidoDAO(Connection connection) {
-		this.connection = connection;
+
+	public PedidoDAO(EntityManager entityManager) {
+		super(entityManager);
+		// TODO Auto-generated constructor stub
 	}
-	
-	private int nextCode() throws DAOException {
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<Pedido> findByClient(Cliente cliente) {
 		
-		try {
-			String sql = "SELECT nextval('seq_pedido')";
-			ResultSet result = connection.createStatement().executeQuery(sql);
-
-			if(result.next()) {
-				return result.getInt(1);
-			}
-			
-			throw new DAOException("Não foi possível pegar o valor da sequência");
-		} catch (SQLException exception) {
-			throw new DAOException(exception);
-		}
+		String hql = "	SELECT "
+				+ "			p "
+				+ "		FROM "
+				+ "			Pedido p "
+				+ "		WHERE "
+				+ "			p.cliente = :cliente";
+		
+		Query query = entityManager.createQuery(hql);
+		query.setParameter("cliente", cliente);
+		
+		return (ArrayList<Pedido>) query.getResultList();
 	}
 	
-	public void insertPedido(Pedido pedido,Cliente cliente)throws DAOException, ParseException{
+	public Pedido findLastByClient(Cliente cliente) {
 		
-			try {
-				pedido.setCod(nextCode());
-				
-				String sql = "INSERT INTO pedido (cod, cod_cliente,data) VALUES (?, ?,?)";
-				
-				PreparedStatement statement = connection.prepareStatement(sql);
-				statement.setInt(1, pedido.getCod());
-				statement.setInt(2,cliente.getCod());
-				
-				SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-				java.util.Date date = df.parse(pedido.getData());
-		        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-				statement.setDate(3,sqlDate);
-				
-				
-				
-				statement.executeUpdate();
-			} catch (SQLException | ParseException exception) {
-				throw new DAOException(exception);
-			}
-		}
-  }
-	
+		// Usando o createNamedQuery para usar uma query definida na Entidade
+		Query query = entityManager.createNamedQuery("Pedido.findLastByClient");
+		query.setParameter("cliente", cliente);
 
+		query.setMaxResults(1); // Limitando em um objeto retornado
+		
+		return (Pedido) query.getSingleResult(); // Pegando o objeto resultante
+	}
+}

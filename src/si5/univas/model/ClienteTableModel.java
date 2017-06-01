@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
+import si5.univas.entity.Cliente;
+
 public class ClienteTableModel extends DefaultTableModel {
 
 	private ArrayList<Cliente> internalList;

@@ -30,12 +30,12 @@ import si5.univas.BI.OrderException;
 import si5.univas.BI.PedidoBI;
 import si5.univas.controller.Controller;
 import si5.univas.dao.DAOException;
-import si5.univas.model.Cliente;
+import si5.univas.entity.Cliente;
+import si5.univas.entity.Item;
+import si5.univas.entity.Pedido;
+import si5.univas.entity.Produto;
 import si5.univas.model.ClienteComboModel;
 import si5.univas.model.GBC;
-import si5.univas.model.Item;
-import si5.univas.model.Pedido;
-import si5.univas.model.Produto;
 import si5.univas.model.ProdutoComboModel;
 
 public class TelaCadastroPedido extends JFrame {

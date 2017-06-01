@@ -10,9 +10,9 @@ import si5.univas.dao.DAOException;
 import si5.univas.dao.ItemDAO;
 import si5.univas.dao.PedidoDAO;
 import si5.univas.dao.ProdutoDAO;
-import si5.univas.model.Cliente;
-import si5.univas.model.Item;
-import si5.univas.model.Produto;
+import si5.univas.entity.Cliente;
+import si5.univas.entity.Item;
+import si5.univas.entity.Produto;
 
 public class ProdutoBI {
 

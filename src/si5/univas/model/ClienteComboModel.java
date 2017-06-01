@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
 import javax.swing.event.ListDataListener;
 
+import si5.univas.entity.Cliente;
+
 public class ClienteComboModel implements ComboBoxModel<Cliente>{
 
 	private ArrayList<Cliente> clientes = new ArrayList<>();

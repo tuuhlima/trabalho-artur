@@ -17,7 +17,7 @@ import javax.swing.JTable;
 
 import si5.univas.controller.Controller;
 import si5.univas.dao.DAOException;
-import si5.univas.model.Cliente;
+import si5.univas.entity.Cliente;
 import si5.univas.model.ClienteTableModel;
 
 

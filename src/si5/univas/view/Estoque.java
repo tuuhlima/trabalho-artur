@@ -26,8 +26,8 @@ import si5.univas.BI.ProdutoBI;
 import si5.univas.BI.OrderException;
 import si5.univas.controller.Controller;
 import si5.univas.dao.DAOException;
+import si5.univas.entity.Produto;
 import si5.univas.model.GBC;
-import si5.univas.model.Produto;
 import si5.univas.model.ProdutoComboModel;
 
 public class Estoque extends JFrame {

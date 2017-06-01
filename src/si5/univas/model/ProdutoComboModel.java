@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
 import javax.swing.event.ListDataListener;
 
+import si5.univas.entity.Produto;
+
 public class ProdutoComboModel implements ComboBoxModel<Produto> {
 
 	private ArrayList<Produto> produtos = new ArrayList<>();
