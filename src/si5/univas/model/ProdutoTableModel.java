@@ -41,7 +41,7 @@ public class ProdutoTableModel extends DefaultTableModel {
 		} else if (column == 1) {
 			return produto.getNome();
 		} else if(column == 2) {
-			return produto.getQtd();
+//			return produto.getQtd();
 		}
 		return produto;
 	}

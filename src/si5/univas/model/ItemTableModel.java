@@ -39,11 +39,11 @@ public class ItemTableModel extends DefaultTableModel {
 		if (column == 0) {
 			return item.getCod();
 		} else if (column == 1) {
-			return item.getCod_pedido();
+			return item.getPedido();
 		} else if(column == 2) {
-			return item.getCod_produto();
+			return item.getProduto();
 		} else if(column ==3){
-			return item.getQtd();
+			return item.getQuantidade();
 		}
 		return item;
 	}

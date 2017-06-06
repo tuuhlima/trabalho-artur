@@ -183,7 +183,7 @@ public class Estoque extends JFrame {
 			getDataTableModel().addRow(row);
 			clear();
 			int i = Integer.parseInt(text2);
-			produto.setQtd(produto.getQtd()+i);
+			produto.setSaldo(produto.getSaldo()+i);
 			listaProdutos.add(produto);
 		}
 	}
@@ -218,7 +218,7 @@ public class Estoque extends JFrame {
 		resposta = JOptionPane.showConfirmDialog(null,"Deseja realmente atualizar?");
 		if(resposta == JOptionPane.YES_OPTION){
 			ProdutoBI produtoBI = new ProdutoBI();
-			produtoBI.atualizaSaldo(listaProdutos);
+//			produtoBI.atualizaSaldo(listaProdutos);
 			JOptionPane.showMessageDialog(null,"Produtos atualizados com sucesso!");
 			clear();
 		}else{

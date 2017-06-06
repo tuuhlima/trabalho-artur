@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import si5.univas.dao.ClienteDAO;
-import si5.univas.dao.ConnectionFactory;
+
 import si5.univas.dao.DAOException;
 import si5.univas.dao.ItemDAO;
 import si5.univas.dao.PedidoDAO;
@@ -114,6 +114,12 @@ public class Controller {
 		telaCadastroPedido.setVisible(true);
 	}
 	
+	public void cadastroCliente(Cliente cliente){
+		ClienteDAO clienteDAO = new ClienteDAO();		
+		clienteDAO.persist(cliente);
+	}
+	
+	/*
 	public void cadastroCliente(Cliente cliente) throws DAOException{
 		
 		Connection connection = ConnectionFactory.createConnection();
@@ -123,13 +129,15 @@ public class Controller {
 		clienteDAO.insertCliente(cliente);
 	}
 	
+	
+	
 	public void cadastroProduto(Produto produto) throws DAOException{
 		
 		Connection connection = ConnectionFactory.createConnection();
 		
 		ProdutoDAO produtoDAO = new ProdutoDAO(connection);
 		produtoDAO.insertProduto(produto);
-	}
+	}*/
 	
 	public void voltaInicial(){
 		telaCadastroPedido.setVisible(false);
@@ -164,17 +172,20 @@ public class Controller {
 	
 	public ArrayList<Cliente> pesquisaCliente() throws SQLException, DAOException{
 		ClienteDAO cliente = new ClienteDAO();
-		return cliente.pesquisarClientes();
+//		return cliente.pesquisarClientes();
+		return null;
 	}
 	
 	public ArrayList<Produto> pesquisaProduto() throws SQLException, DAOException{
 		ProdutoDAO produto = new ProdutoDAO();
-		return produto.pesquisarProduto();
+//		return produto.pesquisarProduto();
+		return null;
 	}
 	
 	public ArrayList<Item> pesquisaItem() throws SQLException,DAOException{
 		ItemDAO item = new ItemDAO();
-		return item.pesquisarItens();
+//		return item.pesquisarItens();
+		return null;
 	}
 	
 	public void cadastrarItem(Cliente cliente,ArrayList<Item> item) throws DAOException{

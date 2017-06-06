@@ -226,9 +226,9 @@ public class TelaCadastroPedido extends JFrame {
 			String[] row = new String[] { text1, text2 };
 			getDataTableModel().addRow(row);
 			clear();
-			item.setCod_produto(produtoModel.getSelectedItem().getCod());
+//			item.setProduto(produtoModel.getSelectedItem().getCod());
 			int i = Integer.parseInt(text2);
-			item.setQtd(i);
+			item.setQuantidade(i);
 			itens.add(item);
 		}
 		
@@ -265,8 +265,8 @@ public class TelaCadastroPedido extends JFrame {
 				Pedido pedido = new Pedido();
 				Cliente cliente = (Cliente) txCliente.getSelectedItem();
 				PedidoBI pedidoBI = new PedidoBI();
-				pedido.setData(txData.getText());
-				pedidoBI.createOrder(cliente,itens,pedido);
+//				pedido.setData(txData.getText());
+//				pedidoBI.createOrder(cliente,itens,pedido);
 				JOptionPane.showMessageDialog(null,"Pedido realizado com sucesso!");
 		}else{
 			return;

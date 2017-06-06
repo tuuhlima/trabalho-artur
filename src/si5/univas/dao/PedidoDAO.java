@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import edu.univas.si4.entity.Cliente;
-import edu.univas.si4.entity.Pedido;
+import si5.univas.entity.Cliente;
+import si5.univas.entity.Pedido;
 
 public class PedidoDAO extends GenericDAO<Pedido, Integer> {
 

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import edu.univas.si4.entity.Cliente;
-import edu.univas.si4.entity.Produto;
+import si5.univas.entity.Cliente;
+import si5.univas.entity.Produto;
 
 public class ProdutoDAO extends GenericDAO<Produto, Integer> {
 
