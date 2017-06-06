@@ -119,26 +119,11 @@ public class Controller {
 		clienteDAO.persist(cliente);
 	}
 	
-	/*
-	public void cadastroCliente(Cliente cliente) throws DAOException{
-		
-		Connection connection = ConnectionFactory.createConnection();
-		
-		// Inserir o Cliente
-		ClienteDAO clienteDAO = new ClienteDAO(connection);		
-		clienteDAO.insertCliente(cliente);
+	public void cadastroProduto(Produto produto) throws DAOException{		
+		ProdutoDAO produtoDAO = new ProdutoDAO();
+		produtoDAO.persist(produto);
 	}
-	
-	
-	
-	public void cadastroProduto(Produto produto) throws DAOException{
 		
-		Connection connection = ConnectionFactory.createConnection();
-		
-		ProdutoDAO produtoDAO = new ProdutoDAO(connection);
-		produtoDAO.insertProduto(produto);
-	}*/
-	
 	public void voltaInicial(){
 		telaCadastroPedido.setVisible(false);
 		estoque.setVisible(false);
@@ -172,8 +157,7 @@ public class Controller {
 	
 	public ArrayList<Cliente> pesquisaCliente() throws SQLException, DAOException{
 		ClienteDAO cliente = new ClienteDAO();
-//		return cliente.pesquisarClientes();
-		return null;
+		return cliente.pesquisarClientes();	
 	}
 	
 	public ArrayList<Produto> pesquisaProduto() throws SQLException, DAOException{

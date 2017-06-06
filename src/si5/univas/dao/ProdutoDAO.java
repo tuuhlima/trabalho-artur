@@ -19,6 +19,17 @@ public class ProdutoDAO extends GenericDAO<Produto, Integer> {
 		super(entityManager);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void persist(Produto produto) {
+        try {
+                 entityManager.getTransaction().begin();
+                 entityManager.persist(produto);
+                 entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+                 ex.printStackTrace();
+                 entityManager.getTransaction().rollback();
+        }
+	}
 
 	/*
 	SELECT 

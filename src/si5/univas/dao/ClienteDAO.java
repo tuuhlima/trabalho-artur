@@ -15,4 +15,10 @@ public class ClienteDAO extends GenericDAO<Cliente, Integer> {
         }
 	}
 	
+	public ClienteDAO pesquisarClientes(){
+		
+		return null;
+		
+	}
+	
 }

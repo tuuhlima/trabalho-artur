@@ -23,19 +23,19 @@ public class Produto implements java.io.Serializable {
 	
 	private Integer cod;
 	private String nome;
-	private int saldo;
+	private int qtd;
 	private Set<Item> items = new HashSet<Item>(0);
 
 	public Produto() {
 	}
 
 	public Produto(int saldo) {
-		this.saldo = saldo;
+		this.qtd = saldo;
 	}
 
 	public Produto(String nome, int saldo, Set<Item> items) {
 		this.nome = nome;
-		this.saldo = saldo;
+		this.qtd = saldo;
 		this.items = items;
 	}
 
@@ -64,13 +64,13 @@ public class Produto implements java.io.Serializable {
 		this.nome = nome;
 	}
 
-	@Column(name = "saldo", nullable = false)
+	@Column(name = "qtd", nullable = false)
 	public int getSaldo() {
-		return this.saldo;
+		return this.qtd;
 	}
 
 	public void setSaldo(int saldo) {
-		this.saldo = saldo;
+		this.qtd = saldo;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "produto")

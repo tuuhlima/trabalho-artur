@@ -134,7 +134,7 @@ public class TelaCadastroProduto extends JFrame {
 				produto.setNome(txNomeProduto.getText());
 				int qtd = Integer.parseInt(txQtdProduto.getText());
 				produto.setSaldo(qtd);
-//				control.cadastroProduto(produto);
+				control.cadastroProduto(produto);
 				clearFields();
 				JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
 		}else{
