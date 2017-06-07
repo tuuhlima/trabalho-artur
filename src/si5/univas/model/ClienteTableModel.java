@@ -1,6 +1,7 @@
 package si5.univas.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -8,10 +9,10 @@ import si5.univas.entity.Cliente;
 
 public class ClienteTableModel extends DefaultTableModel {
 
-	private ArrayList<Cliente> internalList;
+	private List<Cliente> internalList;
 	private String[] header = new String[] {"Código","Nome","Email"};
 
-	public ClienteTableModel(ArrayList<Cliente> newList) {
+	public ClienteTableModel(List<Cliente> newList) {
 		this.internalList = newList;
 	}
 	

@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -169,8 +170,7 @@ public class TelaCadastroPedido extends JFrame {
 	}
 	
 	public void comboBoxCliente() throws SQLException, DAOException{
-		ArrayList<Cliente> clientes = new ArrayList<>();
-		clientes = control.pesquisaCliente();
+		List<Cliente> clientes = control.pesquisaCliente();
 		txCliente.setModel(new ClienteComboModel(clientes));
 	}
 	

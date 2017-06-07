@@ -1,6 +1,7 @@
 package si5.univas.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.event.ListDataListener;
@@ -9,10 +10,10 @@ import si5.univas.entity.Cliente;
 
 public class ClienteComboModel implements ComboBoxModel<Cliente>{
 
-	private ArrayList<Cliente> clientes = new ArrayList<>();
+	private List<Cliente> clientes = new ArrayList<>();
 	private Cliente clienteSelecionado = null;
 	
-	public ClienteComboModel(ArrayList<Cliente> cliente) {
+	public ClienteComboModel(List<Cliente> cliente) {
 		this.clientes = cliente;
 	}
 	

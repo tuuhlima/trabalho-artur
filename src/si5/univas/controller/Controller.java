@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -155,7 +156,7 @@ public class Controller {
 		estoque.setVisible(true);
 	}
 	
-	public ArrayList<Cliente> pesquisaCliente() throws SQLException, DAOException{
+	public List<Cliente> pesquisaCliente() throws SQLException, DAOException{
 		ClienteDAO cliente = new ClienteDAO();
 		return cliente.pesquisarClientes();	
 	}
