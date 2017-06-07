@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -138,7 +139,7 @@ public class Estoque extends JFrame {
 	}
 		
 	public void comboBoxProduto() throws SQLException, DAOException{
-		ArrayList<Produto> produtos = new ArrayList<>();
+		List<Produto> produtos = new ArrayList<>();
 		produtos = control.pesquisaProduto();
 		produtoModel = new ProdutoComboModel(produtos);
 		txProduto.setModel(produtoModel);

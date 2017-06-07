@@ -1,9 +1,11 @@
 package si5.univas.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import si5.univas.entity.Cliente;
 import si5.univas.entity.Produto;
@@ -30,38 +32,10 @@ public class ProdutoDAO extends GenericDAO<Produto, Integer> {
                  entityManager.getTransaction().rollback();
         }
 	}
-
-	/*
-	SELECT 
-		pr.*
-	FROM
-		Produto pr
-		JOIN Item it
-			JOIN Pedido p
-				JOIN Cliente c
-				ON c.cod = p.cod_cliente
-			ON it.cod_pedido = p.cod
-		ON pr.cod = it.cod_produto
-	WHERE
-		c.cod = ?
- 
- */
-
-	@SuppressWarnings("unchecked")
-	public ArrayList<Produto> findByClient(Cliente cliente) {
-		
-		String hql = "	SELECT"
-				+ "			pr"
-				+ "		FROM"
-				+ "			Produto pr"
-				+ "			JOIN pr.items it"
-				+ " 	WHERE"
-				+ "			it.pedido.cliente = :cliente ";
-		
-		Query query = entityManager.createQuery(hql);
-		query.setParameter("cliente", cliente);
-		
-		return (ArrayList<Produto>) query.getResultList();
-	}
 	
+	public List<Produto> pesquisarProdutos() {
+		TypedQuery<Produto> query = entityManager.createQuery("from Produto p", Produto.class);
+		return query.getResultList();
+	}
+
 }

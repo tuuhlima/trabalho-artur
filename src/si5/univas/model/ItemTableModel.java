@@ -1,6 +1,6 @@
 package si5.univas.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -8,10 +8,10 @@ import si5.univas.entity.Item;
 
 public class ItemTableModel extends DefaultTableModel {
 
-	private ArrayList<Item> internalList;
+	private List<Item> internalList;
 	private String[] header = new String[] {"Código","Cod_Pedido","Cod_Produto","Qtd"};
 
-	public ItemTableModel(ArrayList<Item> newList) {
+	public ItemTableModel(List<Item> newList) {
 		this.internalList = newList;
 	}
 	

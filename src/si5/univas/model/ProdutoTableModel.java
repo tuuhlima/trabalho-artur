@@ -1,6 +1,7 @@
 package si5.univas.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -8,10 +9,10 @@ import si5.univas.entity.Produto;
 
 public class ProdutoTableModel extends DefaultTableModel {
 	
-	private ArrayList<Produto> internalList;
+	private List<Produto> internalList;
 	private String[] header = new String[] {"Código","Nome","Quantidade estoque"};
 
-	public ProdutoTableModel(ArrayList<Produto> newList) {
+	public ProdutoTableModel(List<Produto> newList) {
 		this.internalList = newList;
 	}
 	
@@ -41,7 +42,7 @@ public class ProdutoTableModel extends DefaultTableModel {
 		} else if (column == 1) {
 			return produto.getNome();
 		} else if(column == 2) {
-//			return produto.getQtd();
+			return produto.getSaldo();
 		}
 		return produto;
 	}

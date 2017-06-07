@@ -1,6 +1,7 @@
 package si5.univas.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.event.ListDataListener;
@@ -9,10 +10,10 @@ import si5.univas.entity.Produto;
 
 public class ProdutoComboModel implements ComboBoxModel<Produto> {
 
-	private ArrayList<Produto> produtos = new ArrayList<>();
+	private List<Produto> produtos = new ArrayList<>();
 	private Produto produtoSelecionado = null;
 	
-	public ProdutoComboModel(ArrayList<Produto> produtos) {
+	public ProdutoComboModel(List<Produto> produtos) {
 		this.produtos = produtos;
 	}	
 	

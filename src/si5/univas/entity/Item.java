@@ -70,7 +70,7 @@ public class Item implements java.io.Serializable {
 		this.produto = produto;
 	}
 
-	@Column(name = "quantidade")
+	@Column(name = "qtd")
 	public Integer getQuantidade() {
 		return this.quantidade;
 	}

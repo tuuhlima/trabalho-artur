@@ -96,5 +96,11 @@ public class Pedido implements java.io.Serializable {
 	public void setItems(Set<Item> items) {
 		this.items = items;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

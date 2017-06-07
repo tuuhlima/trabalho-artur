@@ -161,16 +161,14 @@ public class Controller {
 		return cliente.pesquisarClientes();	
 	}
 	
-	public ArrayList<Produto> pesquisaProduto() throws SQLException, DAOException{
+	public List<Produto> pesquisaProduto() throws SQLException, DAOException{
 		ProdutoDAO produto = new ProdutoDAO();
-//		return produto.pesquisarProduto();
-		return null;
+		return produto.pesquisarProdutos();
 	}
 	
-	public ArrayList<Item> pesquisaItem() throws SQLException,DAOException{
+	public List<Item> pesquisaItem() throws SQLException,DAOException{
 		ItemDAO item = new ItemDAO();
-//		return item.pesquisarItens();
-		return null;
+		return item.pesquisarItens();	
 	}
 	
 	public void cadastrarItem(Cliente cliente,ArrayList<Item> item) throws DAOException{
