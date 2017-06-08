@@ -81,5 +81,10 @@ public class Produto implements java.io.Serializable {
 	public void setItems(Set<Item> items) {
 		this.items = items;
 	}
+	
+	@Override
+	public String toString() {
+		return String.valueOf(getNome());
+	}
 
 }

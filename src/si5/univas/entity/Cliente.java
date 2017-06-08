@@ -77,5 +77,10 @@ public class Cliente implements java.io.Serializable {
 	public void setPedidos(Set<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
+	
+	@Override
+	public String toString() {
+		return String.valueOf(getNome());
+	}
 
 }

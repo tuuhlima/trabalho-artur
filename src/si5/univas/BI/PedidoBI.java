@@ -18,10 +18,6 @@ import si5.univas.entity.Produto;
 
 public class PedidoBI {
 
-	/*
-	 * aa
-	 */
-	
 //	public void createOrder(Cliente client, ArrayList<Item> items,Pedido pedido) throws OrderException, ParseException {
 //		try {
 //			Connection connection = ConnectionFactory.createConnection();

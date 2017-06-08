@@ -36,7 +36,7 @@ public class ConsultaPedidoView extends JFrame{
 		pnBorder.setLayout(new BorderLayout());
 		setContentPane(pnBorder);
 		pnBorder.add(pnBase,BorderLayout.CENTER);
-		setPreferredSize(new Dimension(480,400));
+		setPreferredSize(new Dimension(480,500));
 		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setTitle("Consulta - Pedidos");

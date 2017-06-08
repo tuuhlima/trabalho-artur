@@ -27,7 +27,6 @@ public class Item implements java.io.Serializable {
 
 	public Item() {
 	}
-
 	public Item(Pedido pedido, Produto produto, Integer quantidade) {
 		this.pedido = pedido;
 		this.produto = produto;

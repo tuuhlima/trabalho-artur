@@ -99,8 +99,7 @@ public class Pedido implements java.io.Serializable {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return String.valueOf(getCod());
 	}
 
 }
