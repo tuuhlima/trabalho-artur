@@ -6,18 +6,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import si5.univas.entity.Cliente;
+import si5.univas.entity.Item;
 import si5.univas.entity.Pedido;
 
 public class PedidoDAO extends GenericDAO<Pedido, Integer> {
 
 	public PedidoDAO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public PedidoDAO(EntityManager entityManager) {
 		super(entityManager);
-		// TODO Auto-generated constructor stub
 	}
 
 	@SuppressWarnings("unchecked")
@@ -45,5 +44,20 @@ public class PedidoDAO extends GenericDAO<Pedido, Integer> {
 		query.setMaxResults(1); // Limitando em um objeto retornado
 		
 		return (Pedido) query.getSingleResult(); // Pegando o objeto resultante
+	}
+	
+	public void persist(Pedido pedido) {
+		try {
+			entityManager.getTransaction().begin();
+			entityManager.persist(pedido);
+			for(Item item: pedido.getItems()) {
+				item.setPedido(pedido);
+				entityManager.persist(item);
+			}
+			entityManager.getTransaction().commit();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			entityManager.getTransaction().rollback();
+		}
 	}
 }

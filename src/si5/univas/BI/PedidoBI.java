@@ -1,39 +1,33 @@
 package si5.univas.BI;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import si5.univas.dao.DAOException;
-import si5.univas.dao.ItemDAO;
 import si5.univas.dao.PedidoDAO;
-import si5.univas.dao.ProdutoDAO;
 import si5.univas.entity.Cliente;
 import si5.univas.entity.Item;
 import si5.univas.entity.Pedido;
 import si5.univas.entity.Produto;
 
-
-
 public class PedidoBI {
 
-//	public void createOrder(Cliente client, ArrayList<Item> items,Pedido pedido) throws OrderException, ParseException {
-//		try {
-//			Connection connection = ConnectionFactory.createConnection();
-//
-//			connection.setAutoCommit(false);
-//			
-//			PedidoDAO pedidoDAO = new PedidoDAO(connection);
-//			
-//			pedido.setCod_cliente(client.getCod());
-//			pedido.setData(pedido.getData());
-//			
-//			pedidoDAO.insertPedido(pedido,client);
-//
-//			ItemDAO itemDAO = new ItemDAO(connection);
-//			ProdutoDAO produtoDAO = new ProdutoDAO(connection);
-//			
+	public void createOrder(Cliente client, ArrayList<Item> items,Pedido pedido) throws OrderException, ParseException {
+		// try {
+						
+			pedido.setCliente(client);
+			
+			HashSet<Item> itemsSet = new HashSet<>(items);
+			pedido.setItems(itemsSet);
+			
+			PedidoDAO pedidoDAO = new PedidoDAO();
+			
+			pedidoDAO.persist(pedido);
+
+			
+			
 //			for (Item item : items) {
 //				Produto produto = produtoDAO.findForUpdate(item.getCod_produto());
 //				
@@ -53,6 +47,6 @@ public class PedidoBI {
 //		} catch (SQLException e) {
 //			e.printStackTrace();
 //		}
-//	}
+	}
 	
 }
